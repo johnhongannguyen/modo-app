@@ -1,6 +1,6 @@
 // routes/vehicles.js
 const express = require('express');
-const {createVehicle,getVehicle, getVehicles} = require('../controllers/vehicleController')
+const {createVehicle,getVehicle, getVehicles, deleteVehicle, updateVehicle} = require('../controllers/vehicleController')
 const router = express.Router();
 
 // GET all vehicles
@@ -15,15 +15,11 @@ router.get('/:id', getVehicle);
 router.post('/',createVehicle)
 
 // DELETE a vehicle
-router.delete('/:id', (req,res)=>{
-  res.json({mssg: 'DELETE a vehicle'})
-});
+router.delete('/:id', deleteVehicle);
 
 // UPDATE a vehicle
 
-router.patch('/:id', (req,res)=>{
-  res.json({mssg: 'UPDATE a vehicle'})
-});
+router.patch('/:id', updateVehicle);
 
 
 module.exports = router;
