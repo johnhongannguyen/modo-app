@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 
 // get all vehicles
 const getVehicles = async(req,res) =>{
+
+   
     const vehicles = await Vehicle.find({}).sort({createdAt: -1})
     res.status(200).json(vehicles);
 }
@@ -26,6 +28,7 @@ const createVehicle = async(req,res) =>{
 
     // add doc to db
   try{
+   
     const vehicle = await Vehicle.create({make,model,year,colour,location_id,location_description})
     res.status(200).json(vehicle)
   }catch(err){

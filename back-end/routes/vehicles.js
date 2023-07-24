@@ -2,7 +2,10 @@
 const express = require('express');
 const {createVehicle,getVehicle, getVehicles, deleteVehicle, updateVehicle} = require('../controllers/vehicleController')
 const router = express.Router();
+const requireAuth = require('../middleware/requireAuth');
 
+// require auth for all vehicle routes
+router.use(requireAuth);
 // GET all vehicles
 router.get('/', getVehicles)
 
