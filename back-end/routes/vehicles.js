@@ -1,24 +1,18 @@
 // routes/vehicles.js
 const express = require('express');
+const {createVehicle,getVehicle, getVehicles} = require('../controllers/vehicleController')
 const router = express.Router();
 
-
 // GET all vehicles
-router.get('/', (req,res) =>{
-  res.json({mssg: 'GET all vehicles'})
-})
+router.get('/', getVehicles)
 
 // GET a single vehicle
 
-router.get('/:id', (req,res)=>{
-  res.json({mssg:'GET a single vehicle'})
-});
+router.get('/:id', getVehicle);
 
 // POST a new vehicle
 
-router.post('/', (req,res)=>{
-  res.json({mssg: 'POST a new vehicle'})
-});
+router.post('/',createVehicle)
 
 // DELETE a vehicle
 router.delete('/:id', (req,res)=>{
